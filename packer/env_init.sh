@@ -1,13 +1,10 @@
 #!/bin/bash
 
 pwd
-
+whoami
 
 ZIP_FILE="/tmp/webapp.zip"
 INSTALL_DIR="/opt/webapp"
-
-echo "Updated dnf repo"
-sudo dnf upgrade -y
 
 
 # Check if the ZIP file exists
@@ -17,6 +14,9 @@ if [ ! -f "$ZIP_FILE" ]; then
 else 
     echo "Zip file copied successfully"
 fi
+
+echo "Updated dnf repo"
+sudo dnf upgrade -y
 
 echo "Proceed with setting up webapp"
 

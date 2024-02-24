@@ -57,7 +57,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - run: cp -r "./../${{ github.event.repository.name }}" "./../webapp"
       - run: zip -r "${{ github.workspace}}/webapp.zip" "./../webapp"
 
       - run: npm install

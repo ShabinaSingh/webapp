@@ -1,10 +1,13 @@
 #!/bin/bash
 
 pwd
-whoami
+
 
 ZIP_FILE="/tmp/webapp.zip"
 INSTALL_DIR="/opt/webapp"
+
+echo "Updated dnf repo"
+sudo dnf upgrade -y
 
 
 # Check if the ZIP file exists
@@ -14,9 +17,6 @@ if [ ! -f "$ZIP_FILE" ]; then
 else 
     echo "Zip file copied successfully"
 fi
-
-echo "Updated dnf repo"
-sudo dnf upgrade -y
 
 echo "Proceed with setting up webapp"
 
@@ -35,7 +35,7 @@ ls -lart /opt
 if [ -d "$INSTALL_DIR" ]; then
     echo "Start setting up application"
     cd "$INSTALL_DIR" || exit 1
-    sudo chmod -R 755 webapp
+    sudo chmod -R 755 ./../webapp
     echo "PWD: " 
     pwd
     sudo dnf module install -y nodejs:20
